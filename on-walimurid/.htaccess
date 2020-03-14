@@ -1,0 +1,24 @@
+<IfModule mod_rewrite.c>
+Options +FollowSymlinks -MultiViews -Indexes
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteCond %{REQUEST_FILENAME} !-l
+RewriteRule ^(.*)$ $1.php
+
+RewriteRule ^student/nilai$ grade.php
+RewriteRule ^student/nilai/$ grade.php 
+
+ErrorDocument 404 /404.php
+</IfModule>
+
+<Files ".*">
+Order allow,deny
+Deny from all
+</Files>
+
+<Files "php.ini">
+Order allow,deny
+Deny from all
+</Files>
